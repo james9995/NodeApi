@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     const data = global.database.questions;
-    const question = await data.findAll({ where: { id: req.params.id}});
+    const question = await data.findOne({ where: { id: req.params.id}});
     return res.send(question);
 });
 
