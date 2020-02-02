@@ -14,7 +14,7 @@ router.get('/:emailAddress', async (req, res) => {
     return res.send(candidate);
 });
 
-app.put('/:candidateData', (req, res) => {
+router.put('/:candidateData', async (req, res) => {
   const data = global.database.Candidate;
   const response = await data. create({ values: { 
     RecruitmentTestName: req.params.candidateData.RecruitmentTestName,
