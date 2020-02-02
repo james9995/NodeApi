@@ -2,9 +2,9 @@ import { Router } from 'express';
 
 const router = Router();
 
-router.get('/', async (req, res) => {
+router.get('/emailAddresses', async (req, res) => {
     const data = global.database.Candidate;
-    const candidates = await data.findAll();
+    const candidates = await data.findAll( {attributes: ['EmailAddress'] });
     return res.send(candidates);
 });
 
