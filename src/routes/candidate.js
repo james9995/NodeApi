@@ -18,17 +18,7 @@ router.get('/:emailAddress', async (req, res) => {
 router.post('/', async (req, res) => {
   const data = global.database.Candidate;
   const candidate = req.body;
-  console.log("test name is: " + candidate.RecruitmentTestName);
-    // const response = await data.create({ values: candidate } );
-  const response = await data.create(
-      {  
-        RecruitmentTestName: "Test_Test",
-        EmailAddress: "email",
-        SessionID: candidate.SessionID,
-        ApplicationDetail: candidate.ApplicationDetail,
-        RegisteredTime: candidate.RegisteredTime
-        
-      });
+  const response = await data.create(candidate);
   return res.send(response);
 });
 
