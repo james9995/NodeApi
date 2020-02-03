@@ -21,13 +21,13 @@ router.post('/', async (req, res) => {
   console.log("test name is: " + candidate.RecruitmentTestName);
     // const response = await data.create({ values: candidate } );
   const response = await data.create(
-      { values: { 
+      {  
         RecruitmentTestName: "Test_Test",
         EmailAddress: "email",
         SessionID: candidate.SessionID,
         ApplicationDetail: candidate.ApplicationDetail,
         RegisteredTime: candidate.RegisteredTime
-        }
+        
       });
   return res.send(response);
 });
