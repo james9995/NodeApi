@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
         EmailAddress: candidate.EmailAddress,
         SessionID: candidate.SessionID,
         ApplicationDetail: candidate.ApplicationDetail,
-        RegisteredTime: candidate.Date
+        RegisteredTime: candidate.RegisteredTime
         }
       }, 
       { fields: [
