@@ -1,5 +1,6 @@
 import { Router } from 'express';
 
+
 const router = Router();
 
 router.get('/checkEmail/:emailAddress', async (req, res) => {
@@ -14,16 +15,28 @@ router.get('/:emailAddress', async (req, res) => {
     return res.send(candidate);
 });
 
-router.post('/:candidateData', async (req, res) => {
+router.post('/', async (req, res) => {
   const data = global.database.Candidate;
+  const candidate = req.body.json;
   const response = await data. create({ values: { 
-    RecruitmentTestName: req.params.candidateData.RecruitmentTestName,
-    EmailAddress: req.params.candidateData.EmailAddress,
-    SessionID: req.params.candidateData.SessionID,
-    ApplicationDetail: req.params.candidateData.ApplicationDetail,
-    RegisteredTime: Date.now()
+    RecruitmentTestName: candidate.RecruitmentTestName,
+    EmailAddress: candidate.EmailAddress,
+    SessionID: candidate.SessionID,
+    ApplicationDetail: candidate.ApplicationDetail,
+    RegisteredTime: candidate.Date
   }});
   return res.send(response);
 });
+
+UserRouter.route('/create').post(function (req, res) {
+    const user = new User(req.body);
+    user.save()
+      .then(user => {
+        res.json('User added successfully');
+      })
+      .catch(err => {
+        res.status(400).send("unable to save to database");
+      });
+  });
 
 export default router;
