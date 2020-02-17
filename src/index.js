@@ -15,5 +15,5 @@ app.use('/Candidate', routes.candidate);
 app.use('/TestParameters', routes.testParameters);
 
 app.listen(portNumber, () =>
-    console.log(`Example app listening on port ${portNumber}!`),
+    console.log(`Node API listening on port ${portNumber}!`),
 );
