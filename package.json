@@ -4,29 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node lib/index.js",
-    "build": "babel src -d lib"
+    "start": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.8.4",
-    "@babel/node": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.8.3",
-    "@babel/preset-env": "^7.8.4",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-stage-0": "^6.24.1",
-    "babel-upgrade": "^1.0.1",
     "nodemon": "^1.19.4"
   },
   "dependencies": {
-    "@babel/runtime": "^7.8.4",
     "body-parser": "^1.19.0",
-    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "find-free-port": "^2.0.0",
     "mysql2": "^2.1.0",
     "sequelize": "^5.21.3",
     "tedious": "^8.0.1"

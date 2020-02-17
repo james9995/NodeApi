@@ -1,8 +1,8 @@
-import question from './question';
-import candidate from './candidate';
-import testParameters from './testParameters';
+const question = require('./question');
+const candidate = require('./candidate');
+const testParameters = require('./testParameters');
 
-export default {
+module.exports = {
   question,
   candidate,
   testParameters

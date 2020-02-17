@@ -1,6 +1,6 @@
 const sequelize = require('sequelize');
 
-module.exports.setupDatabase = () => {
+var setupDatabase = function () {
   const Op = sequelize.Op;
   const operatorsAliases = {
     $in: Op.in,
@@ -16,8 +16,8 @@ module.exports.setupDatabase = () => {
     operatorsAliases,
     logging: false,
     define: {
-      freezeTableName: true, // Important, or sequalize pluralises everything!
-      timestamps: false // important, or sequelize adds unneccesary timestamps
+      freezeTableName: true, // Important, or sequalize pluralises everything - unless you want that!
+      timestamps: false // important, or sequelize adds unneccesary timestamps (unless you think they're necessary)
     }
   });
 
@@ -186,7 +186,10 @@ module.exports.setupDatabase = () => {
   //   },
   // ]);
 
-  db.sync();
+  db.sync(); // Do db.sync({ force: true } ) if you want to reset your test DB by dropping and recreating all tables - don't do this in production!
 
   return { Question, TestParameters, Candidate };
 };
+
+
+module.exports = setupDatabase;

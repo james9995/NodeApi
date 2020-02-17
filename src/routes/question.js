@@ -1,7 +1,7 @@
-import { Router } from 'express';
+const  { Router } = require('express');
 
 const router = Router();
-
+    
 router.get('/:testName/:number', async (req, res) => {
     const data = global.database.Question;
     const question = await data.findOne(
@@ -12,7 +12,8 @@ router.get('/:testName/:number', async (req, res) => {
             }
         }
     );
+
     return res.send(question);
 });
 
-export default router;
+module.exports = router;
