@@ -1,2 +1,2 @@
 runtime: nodejs12
-entrypoint: node src/index.js
+entrypoint: src/index.js
