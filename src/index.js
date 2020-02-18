@@ -2,11 +2,12 @@ const express = require('express');
 const setupDatabase = require('./setupDatabase');
 const routes = require('./routes');
 const bodyParser = require('body-parser');
-const portNumber = 3579; // We can use a static port, because we have control of the environment we're running on
+const portNumber = process.env.PORT||8080;
 
 global.database = setupDatabase();
 const app = express();
 
+app.set('trust proxy', true);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
